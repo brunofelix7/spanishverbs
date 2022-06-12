@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">spanishverbs</string>
+    <!-- TODO: App name -->
+    <string name="app_name">Spanish Verbs</string>
+
+    <!-- TODO: Toolbar -->
+    <string name="txt_search_view">Buscar verbo</string>
+
+    <!-- TODO: Menu -->
+    <string name="title_home">Verbos</string>
+    <string name="title_favorite">Favoritos</string>
+    <string name="title_settings">Ajustes</string>
+    <string name="title_privacy">Política de Privacidad</string>
+    <string name="title_filter">Filtros</string>
+
+    <!-- TODO: MainActivity -->
 </resources>
