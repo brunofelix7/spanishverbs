@@ -12,5 +12,6 @@ data class Verb(
     val id: Long = 0,
     val name: String,
     val gerund: String,
-    val conjugation: String // json object com outros objetos dentro
+    val conjugation: String,
+    val isFavorite: Boolean = false
 ) : Parcelable

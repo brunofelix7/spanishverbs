@@ -66,7 +66,7 @@ class VerbDaoTest {
                     item.perfecto, item.imperativo, item.indicativo,
                     item.progresivo, item.subjuntivo, item.perfectoSubjuntivo)
 
-                verb = Verb(0, name, gerund, gson.toJson(conjugation))
+                verb = Verb(0, name, gerund, gson.toJson(conjugation), true)
             }
         }
 
