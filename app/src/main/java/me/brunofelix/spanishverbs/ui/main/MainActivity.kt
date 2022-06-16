@@ -41,17 +41,6 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.inflateMenu(R.menu.action_menu)
         binding.toolbar.setOnMenuItemClickListener { item ->
             when(item.itemId) {
-                R.id.action_search -> {
-                    if (binding.searchView.isVisible) {
-                        binding.searchView.isVisible = false
-                        hideKeyboard()
-                    } else {
-                        binding.searchView.isVisible = true
-                        binding.searchView.requestFocus()
-                        showKeyboard()
-                    }
-                    true
-                }
                 R.id.action_settings -> {
                     // TODO
                     true
