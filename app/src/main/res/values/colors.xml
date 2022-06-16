@@ -9,7 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="orange">#FF512F</color>
+    <color name="red">#C60B1E</color>
     <color name="secondary">#6E6E6E</color>
+    <color name="secondary_text">#AEAEAE</color>
 
     <!-- Dark Mode colors -->
     <color name="dark">#1F1F1F</color>
