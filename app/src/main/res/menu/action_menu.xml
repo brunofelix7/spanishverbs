@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_filter"
-        android:title="@string/title_filter"
+        android:id="@+id/action_search"
+        android:title="@string/title_search"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_filter"/>
+        android:icon="@drawable/ic_search"/>
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/title_settings"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_settings"/>
     <item
         android:id="@+id/action_privacy"
         android:title="@string/title_privacy"
         app:showAsAction="never"
         android:icon="@drawable/ic_document_outline"/>
     <item
-        android:id="@+id/action_settings"
-        android:title="@string/title_settings"
+        android:id="@+id/action_about"
+        android:title="@string/title_about"
         app:showAsAction="never"
-        android:icon="@drawable/ic_settings"/>
+        android:icon="@drawable/ic_information"/>
 </menu>
