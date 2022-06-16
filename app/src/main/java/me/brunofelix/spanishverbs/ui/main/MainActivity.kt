@@ -4,9 +4,12 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import me.brunofelix.spanishverbs.R
 import me.brunofelix.spanishverbs.databinding.ActivityMainBinding
+import me.brunofelix.spanishverbs.extensions.hideKeyboard
+import me.brunofelix.spanishverbs.extensions.showKeyboard
 import me.brunofelix.spanishverbs.ui.account.AccountFragment
 import me.brunofelix.spanishverbs.ui.favorites.FavoritesFragment
 import me.brunofelix.spanishverbs.ui.home.HomeFragment
@@ -39,7 +42,14 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.setOnMenuItemClickListener { item ->
             when(item.itemId) {
                 R.id.action_search -> {
-                    // TODO
+                    if (binding.searchView.isVisible) {
+                        binding.searchView.isVisible = false
+                        hideKeyboard()
+                    } else {
+                        binding.searchView.isVisible = true
+                        binding.searchView.requestFocus()
+                        showKeyboard()
+                    }
                     true
                 }
                 R.id.action_settings -> {

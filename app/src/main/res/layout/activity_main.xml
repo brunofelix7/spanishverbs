@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="@string/app_name"
-            app:titleTextAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:titleTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             app:titleTextColor="@color/orange" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -37,7 +37,10 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_search_view"
         android:elevation="8dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:searchIcon="@drawable/ic_search"
+        android:visibility="gone"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
