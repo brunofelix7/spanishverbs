@@ -5,12 +5,15 @@
     <!-- TODO: Toolbar -->
     <string name="txt_search_view">Buscar verbo</string>
 
-    <!-- TODO: Menu -->
-    <string name="title_home">Verbos</string>
-    <string name="title_favorite">Favoritos</string>
-    <string name="title_settings">Ajustes</string>
-    <string name="title_privacy">Política de Privacidad</string>
-    <string name="title_filter">Filtros</string>
+    <!-- TODO: Action Menu -->
+    <string name="nav_title_home">Home</string>
+    <string name="nav_title_favorite">Favorites</string>
+    <string name="nav_title_account">Account</string>
+
+    <!-- TODO: Bottom Navigation Menu -->
+    <string name="title_privacy">Privacy Policy</string>
+    <string name="title_search">Search</string>
+    <string name="title_about">About</string>
 
     <!-- TODO: MainActivity -->
 </resources>
