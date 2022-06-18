@@ -9,8 +9,8 @@
     android:layout_marginBottom="8dp"
     android:hardwareAccelerated="true"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="6dp"
+    app:cardElevation="2dp">
 
     <LinearLayout
         android:id="@+id/content"
@@ -35,7 +35,9 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="4dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp">
 
             <TextView
                 android:id="@+id/tv_verb"
@@ -44,8 +46,8 @@
                 android:lines="1"
                 android:maxLines="1"
                 android:text="Hacer"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textStyle="bold" />
+                android:textColor="@color/orange"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_gerund"
@@ -54,8 +56,8 @@
                 android:lines="1"
                 android:maxLines="1"
                 android:text="Haciendo"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                android:textColor="@color/secondary" />
+                android:textColor="@color/secondary"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
