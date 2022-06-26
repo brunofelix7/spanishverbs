@@ -2,9 +2,11 @@ package me.brunofelix.spanishverbs
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
+@HiltAndroidApp
 class MyApplication : Application() {
 
     override fun onCreate() {

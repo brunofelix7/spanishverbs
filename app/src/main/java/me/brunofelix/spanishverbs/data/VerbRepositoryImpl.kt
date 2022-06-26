@@ -2,8 +2,9 @@ package me.brunofelix.spanishverbs.data
 
 import androidx.paging.PagingSource
 import me.brunofelix.spanishverbs.utils.Constants
+import javax.inject.Inject
 
-class VerbRepositoryImpl constructor(
+class VerbRepositoryImpl @Inject constructor(
     private val dao: VerbDao
 ) : VerbRepository {
 

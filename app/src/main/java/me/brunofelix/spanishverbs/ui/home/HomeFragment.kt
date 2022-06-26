@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.preference.PreferenceManager
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -19,44 +21,31 @@ import me.brunofelix.spanishverbs.data.Verb
 import me.brunofelix.spanishverbs.data.VerbRepositoryImpl
 import me.brunofelix.spanishverbs.databinding.FragmentHomeBinding
 import me.brunofelix.spanishverbs.extensions.toast
+import me.brunofelix.spanishverbs.ui.BaseFragment
 
-class HomeFragment : Fragment(), HomeClickListener {
+@AndroidEntryPoint
+class HomeFragment : BaseFragment<FragmentHomeBinding>(
+    FragmentHomeBinding::inflate
+), HomeClickListener {
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var viewModel: HomeViewModel
     private lateinit var adapter: HomeAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+    private val viewModel: HomeViewModel by viewModels()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initUI()
         initObjects()
         observeData()
-        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun getFragmentView() = R.layout.fragment_home
 
     private fun initUI() {
 
     }
 
     private fun initObjects() {
-        val db = AppDatabase.getInstance(requireContext())
-        val dao = db.verbDao()
-        val repository = VerbRepositoryImpl(dao)
-        val dispatcher = Dispatchers.IO
-        val factory = HomeViewModelFactory(repository, dispatcher, requireContext())
-
-        viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
-
         fillDatabase()
     }
 

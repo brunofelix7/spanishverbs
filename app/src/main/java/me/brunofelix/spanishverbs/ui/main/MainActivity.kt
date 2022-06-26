@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import me.brunofelix.spanishverbs.R
 import me.brunofelix.spanishverbs.databinding.ActivityMainBinding
 import me.brunofelix.spanishverbs.extensions.hideKeyboard
@@ -14,6 +15,7 @@ import me.brunofelix.spanishverbs.ui.account.AccountFragment
 import me.brunofelix.spanishverbs.ui.favorites.FavoritesFragment
 import me.brunofelix.spanishverbs.ui.home.HomeFragment
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

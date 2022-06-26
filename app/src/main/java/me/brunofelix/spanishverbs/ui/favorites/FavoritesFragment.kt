@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import dagger.hilt.android.AndroidEntryPoint
 import me.brunofelix.spanishverbs.R
 
+@AndroidEntryPoint
 class FavoritesFragment : Fragment() {
 
     override fun onCreateView(

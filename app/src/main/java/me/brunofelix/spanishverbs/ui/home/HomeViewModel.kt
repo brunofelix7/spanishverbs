@@ -9,6 +9,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.google.gson.Gson
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -20,8 +21,10 @@ import me.brunofelix.spanishverbs.data.json.ConjugationJson
 import me.brunofelix.spanishverbs.data.json.RootJson
 import me.brunofelix.spanishverbs.extensions.getJsonFromAssets
 import me.brunofelix.spanishverbs.extensions.listAZ
+import javax.inject.Inject
 
-class HomeViewModel constructor(
+@HiltViewModel
+class HomeViewModel @Inject constructor(
     private val repository: VerbRepository,
     private val dispatcher: CoroutineDispatcher,
     private val context: Context
