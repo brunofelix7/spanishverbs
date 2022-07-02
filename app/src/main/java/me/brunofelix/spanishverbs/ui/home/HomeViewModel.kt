@@ -1,6 +1,5 @@
 package me.brunofelix.spanishverbs.ui.home
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,13 +20,14 @@ import me.brunofelix.spanishverbs.data.json.ConjugationJson
 import me.brunofelix.spanishverbs.data.json.RootJson
 import me.brunofelix.spanishverbs.extensions.getJsonFromAssets
 import me.brunofelix.spanishverbs.extensions.listAZ
+import me.brunofelix.spanishverbs.utils.AppProvider
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val repository: VerbRepository,
     private val dispatcher: CoroutineDispatcher,
-    private val context: Context
+    private val provider: AppProvider
 ) : ViewModel() {
 
     private val _liveData = MutableLiveData<HomeUiState>()
@@ -40,7 +40,7 @@ class HomeViewModel @Inject constructor(
             val gson = Gson()
 
             for (letter in listAZ()) {
-                val json = context.getJsonFromAssets("${letter}_verbos.json")
+                val json = provider.context().getJsonFromAssets("${letter}_verbos.json")
 
                 if (json.isNotEmpty()) {
                     val verbsList = gson.fromJson(json, Array<RootJson>::class.java).asList()

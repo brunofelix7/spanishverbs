@@ -27,6 +27,4 @@ abstract class BaseFragment<T: ViewBinding> constructor(
 
         return binding.root
     }
-
-    abstract fun getFragmentView() : Int
 }

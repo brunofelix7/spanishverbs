@@ -14,6 +14,7 @@ import me.brunofelix.spanishverbs.data.AppDatabase
 import me.brunofelix.spanishverbs.data.VerbDao
 import me.brunofelix.spanishverbs.data.VerbRepository
 import me.brunofelix.spanishverbs.data.VerbRepositoryImpl
+import me.brunofelix.spanishverbs.utils.AppProvider
 import javax.inject.Singleton
 
 @Module
@@ -43,5 +44,5 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideContext(@ApplicationContext context: Context) = context
+    fun provideAppProvider(@ApplicationContext context: Context) = AppProvider(context)
 }

@@ -39,8 +39,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         observeData()
     }
 
-    override fun getFragmentView() = R.layout.fragment_home
-
     private fun initUI() {
 
     }
