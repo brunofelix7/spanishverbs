@@ -2,14 +2,15 @@ package me.brunofelix.spanishverbs.data
 
 import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.room.Room
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
 import com.google.gson.Gson
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import me.brunofelix.spanishverbs.data.json.ConjugationJson
 import me.brunofelix.spanishverbs.data.json.RootJson
 import me.brunofelix.spanishverbs.extensions.getJsonFromAssets
@@ -17,32 +18,33 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
+import javax.inject.Inject
+import javax.inject.Named
 
-@RunWith(AndroidJUnit4::class)
 @SmallTest
+@HiltAndroidTest
 @ExperimentalCoroutinesApi
 class VerbDaoTest {
 
     @get:Rule
+    val hiltRule = HiltAndroidRule(this)
+
+    @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var database: AppDatabase
+    @Inject
+    @Named("test_db")
+    lateinit var database: AppDatabase
+
     private lateinit var dao: VerbDao
     private lateinit var context: Context
     private lateinit var gson: Gson
 
     @Before
     fun setUp() {
+        hiltRule.inject()
         context = InstrumentationRegistry.getInstrumentation().targetContext
-
-        database = Room.inMemoryDatabaseBuilder(
-            context,
-            AppDatabase::class.java
-        ).allowMainThreadQueries().build()
-
         dao = database.verbDao()
-
         gson = Gson()
     }
 
@@ -52,7 +54,7 @@ class VerbDaoTest {
     }
 
     @Test
-    fun insertTest() = runBlockingTest {
+    fun insertTest() = runTest {
         var verb: Verb? = null
         val json = context.getJsonFromAssets("_test.json")
 
